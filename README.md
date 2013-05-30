@@ -7,7 +7,7 @@ Start with either the WS-Federation or SAML-P passport.js strategy, and then acc
 * WebSSO using WS-Federation or SAML-P
 * Graph API query capabiltiy using OpenAuth 2.0
 
-[Refer to our Wiki](https://github.com/MSOpenTech/passport-azure-ad/wiki) for detailed walkthroughs on how to use this package.
+[Refer to our Wiki](https://github.com/MSOpenTech/AzureAD-Node-Sample/wiki) for detailed walkthroughs on how to use this package.
 
 We've released all of the source code for this running example in GitHub under an Apache 2.0 license, so feel free to clone (or even better, fork!) and provide feedback on the forums.
 
