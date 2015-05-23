@@ -1,11 +1,11 @@
-#Windows Azure Active Directory SDK for node.js
+#Azure Active Directory SDK for node.js
 
-This Node.js package will give you with a quick and easy way to set up your first app that's integrated with Windows Azure Active Directory. The sample apps included in download are designed to run on any platform. It also provides libraries so you can build your own node.js applications using Passport.js.
+This Node.js package will give you with a quick and easy way to set up your first app that's integrated with Azure Active Directory. The sample apps included in download are designed to run on any platform. It also provides libraries so you can build your own node.js applications using Passport.js.
 
-Start with either the WS-Federation or SAML-P passport.js strategy, and then access the Windows Azure Active Directory Graph API. By the end of these walkthroughs, you should be able to build a running HTTP server with the following features:
+Start with either the WS-Federation or SAML 2.0 passport.js strategy, and then access the  Azure Active Directory Graph API. By the end of these walkthroughs, you should be able to build a running HTTP server with the following features:
 
-* WebSSO using WS-Federation or SAML-P
-* Graph API query capabiltiy using OpenAuth 2.0
+* WebSSO using WS-Federation or SAML 2.0
+* Graph API query capabiltiy using OAuth 2.0
 
 [Refer to our Wiki](https://github.com/MSOpenTech/AzureAD-Node-Sample/wiki) for detailed walkthroughs on how to use this package.
 
@@ -15,38 +15,31 @@ We've released all of the source code for this running example in GitHub under a
 
 Getting started with the sample is easy. It is configured to run out of the box with minimal setup. 
 
-### Step 1: Register a Windows Azure AD Tenant
-
-To use this sample you will need a Windows Azure Active Directory Tenant. If you're not sure what a tenant is or how you would get one, read [What is a Windows Azure AD tenant](http://technet.microsoft.com/library/jj573650.aspx)? or [Sign up for Windows Azure as an organization](http://www.windowsazure.com/en-us/manage/services/identity/organizational-account/). These docs should get you started on your way to using Windows Azure AD.
-
-### Step 2: Generate A Service Principal for your Windows Azure AD Tenant
-
-After you get your Windows Azure AD tenant, add this sample app to your tenant so it can access your tenant information. If you need help with this step, see: [Learn how to register and integrate an application with Windows Azure AD](http://msdn.microsoft.com/en-us/library/windowsazure/dn151122.aspx) and [Adding, Updating, and Removing an App](http://msdn.microsoft.com/en-us/library/windowsazure/dn132599.aspx).
-
-### Step 3: Download node.js for your platform
+### Step 1: Download node.js for your platform
 To successfully use this sample, you need a working installation of Node.js.
 
 Install Node.js from [http://nodejs.org](http://nodejs.org). 
 
-### Step 4: Download the Sample application and modules
+### Step 2: Download the sample application and modules
 
 Next, clone the sample repo and install the NPM.
 
 From your shell or command line:
 
 * `$ git clone https://github.com/MSOpenTech/AzureAD-Node-Sample`
-* `$ npm install`
 
-### Step 5: Add Configuration Values and Run Application
+### Step 5:  Run the sample application
 
-For using the WS-Federation protocol:
+Using the WS-Federation protocol:
 
 * `$ cd login-wsfed`
+* `$ npm install`
 * `$ node app.js`
 
-For using the SAML-P protocol:
+Using the SAML 2.0 protocol:
 
 * `$ cd login-saml`
+* `$ npm install`
 * `$ node app.js`
 
 The login credentials for the sample application are:
@@ -55,8 +48,39 @@ Username: `aaUser@graphDir1.onMicrosoft.com`
 
 Password: `P@ssword1`
 
+### Step 6:  Optional - Register the sample with your Azure Active Directory tenant
 
-The configuration values you'll need to edit are found in ```app.js ``` and documented in the code. As much as possible they will match the fields in the Azure Management Portal as discussed in [Adding, Updating, and Removing an App](http://msdn.microsoft.com/en-us/library/windowsazure/dn132599.aspx).
+After you've tried running the sample using the already-provided Azure AD tenant and user credentials, you can register the application in your own tenant.  To do this you will need:
+- An Internet connection
+- An Azure subscription (a free trial is sufficient)
+
+Every Azure subscription has an associated Azure Active Directory tenant.  If you don't already have an Azure subscription, you can get a free subscription by signing up at [http://wwww.windowsazure.com](http://www.windowsazure.com).  All of the Azure AD features used by this sample are available free of charge.
+
+#### Step 6.1:  Register the sample with your Azure Active Directory tenant 
+
+1. Sign in to the [Azure management portal](https://manage.windowsazure.com).
+2. Click on Active Directory in the left hand nav.
+3. Click the directory tenant where you wish to register the sample application.
+4. Click the Applications tab.
+5. In the drawer, click Add.
+6. Click "Add an application my organization is developing".
+7. Enter a friendly name for the application, for example "Azure AD Node.js Sample", select "Web Application and/or Web API", and click next.
+8. For the sign-on URL, enter the base URL for the sample, which is by default `http://localhost:3000/`.
+9. For the App ID URI, enter `https://<your_tenant_name>/AzureAD-Node-Sample`, replacing `<your_tenant_name>` with the name of your Azure AD tenant.  Click OK to complete the registration.
+10. While still in the Azure portal, click the Configure tab of your application.
+11. Find the Client ID value and copy it aside, you will need this later when configuring your application.
+12. Create a new key for the application.  Save the configuration so you can view the key value.  Save the key value aside for when you configure the sample.
+13. In the Permissions to Other Applications configuration section, add the Read Directory Data Application Permission to Windows Azure Active Directory.  Save the configuration.
+
+#### Step 6.2:  Configure the sample to use your Azure Active Directory tenant
+
+1. Open the 'app.js' file in either the login-saml or login-wsfed directory.
+2. In the 'config' var find the 'identityMetadata' value and set it to 'https://login.microsoftonline.com/<your_tenant_name>/federationmetadata/2007-06/federationmetadata.xml' where <your_tenant_name> is the name of your Azure AD tenant, e.g. contoso.onmicrosoft.com.
+3. In the 'config' var find the 'issuer' value and set it to the App ID URI you defined earlier, 'https://<your_tenant_name>/AzureAD-Node-Sample'.
+4. In the 'graphConfig' var find the 'tenant' value and set it to <your_tenant_name>, e.g. contoso.onmicrosoft.com.
+5. In the 'graphConfig' var find the 'clientid' value and set it to the client ID you saved aside earlier.
+6. In the 'graphConfig' var find the 'clientsecret' value and set it to the secret value you saved aside earlier.
+
 
 ## Detailed Information
 

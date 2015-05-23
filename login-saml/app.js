@@ -33,9 +33,9 @@ var app = express();
 
 var config = {
   // required options
-  identityMetadata: 'https://login.windows.net/GraphDir1.OnMicrosoft.com/federationmetadata/2007-06/federationmetadata.xml',
+  identityMetadata: 'https://login.microsoftonline.com/common/federationmetadata/2007-06/federationmetadata.xml',
   loginCallback: 'http://localhost:3000/login/callback/',
-  issuer: 'http://localhost:3000',  // this is the URI you entered for APP ID URI when configuring SSO for you app on Azure AAD
+  issuer: 'https://skwantoso.com/azuread-node-sample',  // this is the URI you entered for APP ID URI when configuring SSO for you app on Azure AAD
 
   // optional, but required to support SAML logout
   appUrl: 'http://localhost:3000',
@@ -54,17 +54,17 @@ var config = {
 
 var graphConfig = {
 // Enter the domain for your Active directory subscription, such as contoso.onmicrosoft.com
-  tenant: 'graphDir1.onMicrosoft.com',
+  tenant: 'skwantoso.com',
 
   // Enter the Client ID GUID of your app.
   // In the Windows Azure Management Portal, click Active Directory, click your tenant,
   // click Integrated Apps, click your app, and click Configure.
   // The Client ID is on this app configuration page.
-  clientid: 'b3b1fc59-84b8-4400-a715-ea8a7e40f4fe',
+  clientid: '15f2d0fd-36b7-456b-b50e-90609d2dc9ac',
 
   //Enter the value of the key for the app. You can create the key on the Configure page for the app.
   // The value appears only when you first save the key. Enter the saved value.
-  clientsecret: 'FStnXT1QON84B5o38aEmFdlNhEnYtzJ91Gg/JH/Jxiw='
+  clientsecret: 'ue9z/vAxduBzaCd87trFMxZi6ckGRsu5aHQalaYhJis='
 };
 
 
