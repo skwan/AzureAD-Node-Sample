@@ -28,7 +28,7 @@ From your shell or command line:
 
 * `$ git clone https://github.com/MSOpenTech/AzureAD-Node-Sample`
 
-### Step 5:  Run the sample application
+### Step 3:  Run the sample application
 
 Using the WS-Federation protocol:
 
@@ -48,7 +48,7 @@ Username: `aaUser@graphDir1.onMicrosoft.com`
 
 Password: `P@ssword1`
 
-### Step 6:  Optional - Register the sample with your Azure Active Directory tenant
+### Step 4:  Optional - Register the sample with your Azure Active Directory tenant
 
 After you've tried running the sample using the already-provided Azure AD tenant and user credentials, you can register the application in your own tenant.  To do this you will need:
 - An Internet connection
@@ -56,7 +56,7 @@ After you've tried running the sample using the already-provided Azure AD tenant
 
 Every Azure subscription has an associated Azure Active Directory tenant.  If you don't already have an Azure subscription, you can get a free subscription by signing up at [http://wwww.windowsazure.com](http://www.windowsazure.com).  All of the Azure AD features used by this sample are available free of charge.
 
-#### Step 6.1:  Register the sample with your Azure Active Directory tenant 
+#### Step 4.1:  Register the sample with your Azure Active Directory tenant 
 
 1. Sign in to the [Azure management portal](https://manage.windowsazure.com).
 2. Click on Active Directory in the left hand nav.
@@ -72,14 +72,14 @@ Every Azure subscription has an associated Azure Active Directory tenant.  If yo
 12. Create a new key for the application.  Save the configuration so you can view the key value.  Save the key value aside for when you configure the sample.
 13. In the Permissions to Other Applications configuration section, add the Read Directory Data Application Permission to Windows Azure Active Directory.  Save the configuration.
 
-#### Step 6.2:  Configure the sample to use your Azure Active Directory tenant
+#### Step 4.2:  Configure the sample to use your Azure Active Directory tenant
 
-1. Open the 'app.js' file in either the login-saml or login-wsfed directory.
-2. In the 'config' var find the 'identityMetadata' value and set it to 'https://login.microsoftonline.com/<your_tenant_name>/federationmetadata/2007-06/federationmetadata.xml' where <your_tenant_name> is the name of your Azure AD tenant, e.g. contoso.onmicrosoft.com.
-3. In the 'config' var find the 'issuer' value and set it to the App ID URI you defined earlier, 'https://<your_tenant_name>/AzureAD-Node-Sample'.
-4. In the 'graphConfig' var find the 'tenant' value and set it to <your_tenant_name>, e.g. contoso.onmicrosoft.com.
-5. In the 'graphConfig' var find the 'clientid' value and set it to the client ID you saved aside earlier.
-6. In the 'graphConfig' var find the 'clientsecret' value and set it to the secret value you saved aside earlier.
+1. Open the `app.js` file in either the `login-saml` or `login-wsfed` directory.
+2. In the 'config' var find the 'identityMetadata' value and set it to `https://login.microsoftonline.com/<your_tenant_name>/federationmetadata/2007-06/federationmetadata.xml` where <your_tenant_name> is the name of your Azure AD tenant, e.g. contoso.onmicrosoft.com.
+3. In the `config` var find the `issuer` value and set it to the App ID URI you defined earlier, `https://<your_tenant_name>/AzureAD-Node-Sample`.
+4. In the `graphConfig` var find the `tenant` value and set it to <your_tenant_name>, e.g. contoso.onmicrosoft.com.
+5. In the `graphConfig` var find the `clientid` value and set it to the client ID you saved aside earlier.
+6. In the `graphConfig` var find the `clientsecret` value and set it to the secret value you saved aside earlier.
 
 
 ## Detailed Information
