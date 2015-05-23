@@ -75,9 +75,9 @@ Every Azure subscription has an associated Azure Active Directory tenant.  If yo
 #### Step 4.2:  Configure the sample to use your Azure Active Directory tenant
 
 1. Open the `app.js` file in either the `login-saml` or `login-wsfed` directory.
-2. In the 'config' var find the 'identityMetadata' value and set it to `https://login.microsoftonline.com/<your_tenant_name>/federationmetadata/2007-06/federationmetadata.xml` where <your_tenant_name> is the name of your Azure AD tenant, e.g. contoso.onmicrosoft.com.
+2. In the `config` var find the `identityMetadata` value and set it to `https://login.microsoftonline.com/<your_tenant_name>/federationmetadata/2007-06/federationmetadata.xml` where `<your_tenant_name>` is the name of your Azure AD tenant, e.g. contoso.onmicrosoft.com.
 3. In the `config` var find the `issuer` value and set it to the App ID URI you defined earlier, `https://<your_tenant_name>/AzureAD-Node-Sample`.
-4. In the `graphConfig` var find the `tenant` value and set it to <your_tenant_name>, e.g. contoso.onmicrosoft.com.
+4. In the `graphConfig` var find the `tenant` value and set it to `<your_tenant_name>`, e.g. contoso.onmicrosoft.com.
 5. In the `graphConfig` var find the `clientid` value and set it to the client ID you saved aside earlier.
 6. In the `graphConfig` var find the `clientsecret` value and set it to the secret value you saved aside earlier.
 
